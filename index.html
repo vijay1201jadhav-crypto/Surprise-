@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Love ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Opening Screen */
+#opening {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #18000b, #5c001d, #160008);
+}
+
+#opening h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+    animation: glow 2s infinite alternate;
+}
+
+#opening p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 35px;
+}
+
+button {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    background: #ff174f;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(255, 23, 79, 0.6);
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Main content */
+#surprise {
+    display: none;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #130006, #360012);
+    padding: 40px 15px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title h2 {
+    font-size: 32px;
+}
+
+.title p {
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* Photos */
+.gallery {
+    max-width: 900px;
+    margin: auto;
+}
+
+.photo-card {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.photo-card img {
+    width: 100%;
+    max-width: 600px;
+    max-height: 75vh;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(255, 0, 70, 0.35);
+}
+
+.caption {
+    margin-top: 12px;
+    font-size: 18px;
+    font-style: italic;
+}
+
+/* Final message */
+.final {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.final h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.final p {
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 5s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #ff174f;
+    }
+
+    to {
+        text-shadow: 0 0 25px #ff174f, 0 0 50px #ff174f;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Opening -->
+<section id="opening">
+
+    <h1>Hey My Love ❤️</h1>
+
+    <p>
+        I made something special just for you...<br>
+        Are you ready? 🥰
+    </p>
+
+    <button onclick="openSurprise()">
+        Open My Heart 💖
+    </button>
+
+</section>
+
+
+<!-- Surprise -->
+<section id="surprise">
+
+    <div class="title">
+        <h2>Our Beautiful Memories ❤️</h2>
+        <p>Every picture has a story... and every story has you. 🥰</p>
+    </div>
+
+
+    <div class="gallery">
+
+        <div class="photo-card">
+            <img src="photo1.jpg">
+            <div class="caption">
+                My favourite memory with you ❤️
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo2.jpg">
+            <div class="caption">
+                That smile... I could look at it forever 🥹❤️
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo3.jpg">
+            <div class="caption">
+                Just you and me. That's enough. 💕
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo4.jpg">
+            <div class="caption">
+                One moment, a thousand memories ❤️
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo5.jpg">
+            <div class="caption">
+                And I want many more memories with you... 🫶
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Final -->
+    <div class="final">
+
+        <h2>I Love You ❤️</h2>
+
+        <p>
+            No matter how many photos we take,<br>
+            my favourite picture will always be<br>
+            <b>US. ❤️</b>
+        </p>
+
+        <br>
+
+        <p>
+            Thank you for being a beautiful part of my life. 🥰
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function openSurprise() {
+
+    document.getElementById("opening").style.display = "none";
+    document.getElementById("surprise").style.display = "block";
+
+    createHearts();
+
+}
+
+
+/* Floating hearts */
+
+function createHearts() {
+
+    setInterval(function() {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        const hearts = ["❤️","💕","💖","💗","💓","🥰"];
+
+        heart.innerHTML =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 25) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 5000);
+
+    }, 500);
+
+}
+
+</script>
+
+</body>
+</html>
